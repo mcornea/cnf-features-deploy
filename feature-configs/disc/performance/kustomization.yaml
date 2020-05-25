@@ -1,8 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+# TODO handle namespace with var
 bases:
   - ../../deploy/performance
 
-resources:
-  - performance_profile.yaml
+patchesStrategicMerge:
+
+  - operator_subscription_patch.yaml
